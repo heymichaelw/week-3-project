@@ -27,9 +27,10 @@ equals.addEventListener('mouseup', function(event){
   event.target.style.background = '#61B34F';
 });
 equals.addEventListener('click', function(event){
-  displayNode.innerText = displayNode.innerText.replace(/ /g, "");
-  displayNode.innerText = displayNode.innerText.replace(/x/g, "*");
-  displayNode.innerText = displayNode.innerText.replace(/÷/g, "/");
+  // displayNode.innerText = displayNode.innerText.replace(/ /g, "");
+  // displayNode.innerText = displayNode.innerText.replace(/x/g, "*");
+  // displayNode.innerText = displayNode.innerText.replace(/÷/g, "/");
+  console.log(DoMath());
 });
 
 var operation = document.querySelectorAll('.operation');
@@ -60,7 +61,10 @@ clearButton.addEventListener('click', function(event){
 
 function DoMath(){
   var result = displayNode.innerText;
-  result.replace(/ /g, "");
-  result.replace(/x/g, "*");
-  result.replace(/÷/g, "/");
+  result = result.replace(/ /g, "").replace(/x/g, "*").replace(/÷/g, "/");
+  for (var i = 0; i < result.length; i++) {
+    if (result.includes('+')) {
+      return (parseInt(result[0]) + parseInt(result[2]));
+    }
+  }
 }
